@@ -22,7 +22,6 @@ np.random.seed(0)
 
 ### Argument and global variables
 
-
 parser = argparse.ArgumentParser('TGN self-supervised training')
 parser.add_argument('-d', '--data', type=str, help='Dataset name (eg. wikipedia or reddit)',
                     default='DGraph', choices=['reddit', 'mooc', 'wikipedia', 'DGraph'])
