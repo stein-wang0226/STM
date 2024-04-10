@@ -31,6 +31,12 @@ parser.add_argument('--sample_mode', type=str, default='random')
 parser.add_argument('--hard_sample', action='store_true')
 parser.add_argument('--use_att',  action='store_true', help='whether use att layer or not')
 parser.add_argument('--node_fetch',  action='store_true', help='whether node_fetch or not')
+parser.add_argument('--d1', type=int, default=3)
+parser.add_argument('--d2', type=int, default=2)
+parser.add_argument('--k2', type=int, default=1)
+parser.add_argument('--DGraph_size', type=int, default=1100000)
+
+
 
 try:
     args = parser.parse_args()
