@@ -280,7 +280,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
         ######################################################### todo node-fetch
         saved = False
         if not saved:
-            # todo 参数
+            # todo 加入到args
             d1 = 3  # todo   sd小于的d1的保留   越小删越多？ 发现>=3 都相等(选不了的都是没有与两个target 连通的bg node ——通过隶属fetch)
             d2 = 1  # todo 取d2跳的k个最相似的
             k = 1
