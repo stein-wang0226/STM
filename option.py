@@ -37,9 +37,8 @@ parser.add_argument('--d2', type=int, default=2)
 parser.add_argument('--k2', type=int, default=1)
 parser.add_argument('--DGraph_size', type=int, default=1100000)
 # Spatio-Temporal distance
-parser.add_argument('--use_Spatio-Temporal distance', action='store_true', default=True,
+parser.add_argument('--use_ST_dist', action='store_true', default=True,
                     help='use Spatio-Temporal distance')
-
 try:
     args = parser.parse_args()
 except:

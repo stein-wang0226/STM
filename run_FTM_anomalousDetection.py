@@ -17,9 +17,11 @@ import tqdm
 import os
 
 os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
+
 torch.manual_seed(0)
 np.random.seed(0)
 from option import args  # todo 参数放到option了
+
 
 BATCH_SIZE = args.bs
 NUM_NEIGHBORS = args.n_degree
