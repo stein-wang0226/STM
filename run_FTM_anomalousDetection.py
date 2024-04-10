@@ -19,8 +19,7 @@ import os
 os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 torch.manual_seed(0)
 np.random.seed(0)
-from option import args
-
+from option import args  # todo 参数放到option了
 
 BATCH_SIZE = args.bs
 NUM_NEIGHBORS = args.n_degree
@@ -49,7 +48,9 @@ logger.setLevel(logging.DEBUG)
 Path("log/").mkdir(parents=True, exist_ok=True)
 log_filename = 'log/{}-{}.log'.format(
     args.prefix,
-    '--'.join([args.data, args.embedding_module, f'k={args.k}', f'time_line_length={args.time_line_length}',f'node_fetch={args.node_fetch}',f'use_att={args.use_att}', f'n_degree={args.n_degree}',f'bs={args.bs}',f'ls={args.lr}', datetime.now().strftime('%Y-%m-%d_%H-%M-%S')])
+    '--'.join([args.data, args.embedding_module, f'k={args.k}', f'time_line_length={args.time_line_length}',
+               f'node_fetch={args.node_fetch}', f'use_att={args.use_att}', f'n_degree={args.n_degree}', f'bs={args.bs}',
+               f'ls={args.lr}', datetime.now().strftime('%Y-%m-%d_%H-%M-%S')])
 )
 fh = logging.FileHandler(log_filename)
 
@@ -67,7 +68,7 @@ print(args.data)
 
 ### Extract data for training, validation and testing
 node_features, edge_features, full_data, train_data, test_data, val_data = \
-    get_data(dataset_name=args.data,node_fetch= args.node_fetch)
+    get_data(dataset_name=args.data, node_fetch=args.node_fetch)
 
 # Initialize training neighbor finder to retrieve temporal graph
 train_ngh_finder = get_neighbor_finder(train_data,
@@ -183,7 +184,7 @@ for i in range(args.n_runs):
                                          n_neighbors=NUM_NEIGHBORS,
                                          batch_size=args.bs)
         max_val_auc = max(max_val_auc, val_auc)
-        max_test_auc = max(max_test_auc,test_auc)
+        max_test_auc = max(max_test_auc, test_auc)
         logger.info("val auc:{}".format(val_auc))
         logger.info(
             'test auc: {}'.format(test_auc))
