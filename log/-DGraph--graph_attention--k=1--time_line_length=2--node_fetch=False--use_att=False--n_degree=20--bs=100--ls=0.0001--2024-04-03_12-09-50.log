@@ -1,0 +1,24 @@
+2024-04-03 12:09:50,593 - root - INFO - Namespace(data='DGraph', k=1, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=12, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='graph_attention', agg_time_line='auto-encoder', use_time_line=True, time_line_length=2, sample_mode='time', hard_sample=True, use_att=False, node_fetch=False)
+2024-04-03 12:10:02,676 - root - INFO - num of training instances: 324506
+2024-04-03 12:10:02,676 - root - INFO - num of batches per epoch: 3246
+2024-04-03 12:10:02,677 - root - INFO - start 0 epoch
+2024-04-03 12:13:04,222 - root - INFO - val auc:0.6748189189220357
+2024-04-03 12:13:04,222 - root - INFO - test auc: 0.7769859962865705
+2024-04-03 12:13:04,230 - root - INFO - epoch: 0 took 181.55s
+2024-04-03 12:13:04,230 - root - INFO - Epoch mean loss: 395.391602393366
+2024-04-03 12:13:04,286 - root - INFO - start 1 epoch
+2024-04-03 12:16:05,302 - root - INFO - val auc:0.6693265202334536
+2024-04-03 12:16:05,302 - root - INFO - test auc: 0.7764045263952666
+2024-04-03 12:16:05,303 - root - INFO - epoch: 1 took 181.02s
+2024-04-03 12:16:05,303 - root - INFO - Epoch mean loss: 394.20726840876534
+2024-04-03 12:16:05,309 - root - INFO - start 2 epoch
+2024-04-03 12:19:08,542 - root - INFO - val auc:0.6704451232942745
+2024-04-03 12:19:08,542 - root - INFO - test auc: 0.7727571027651279
+2024-04-03 12:19:08,544 - root - INFO - epoch: 2 took 183.24s
+2024-04-03 12:19:08,544 - root - INFO - Epoch mean loss: 393.9245383032883
+2024-04-03 12:19:08,549 - root - INFO - start 3 epoch
+2024-04-03 12:22:08,450 - root - INFO - val auc:0.6767701316837975
+2024-04-03 12:22:08,451 - root - INFO - test auc: 0.7690275278151073
+2024-04-03 12:22:08,452 - root - INFO - epoch: 3 took 179.90s
+2024-04-03 12:22:08,453 - root - INFO - Epoch mean loss: 393.71159943282714
+2024-04-03 12:22:08,457 - root - INFO - start 4 epoch

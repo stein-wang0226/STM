@@ -1,0 +1,19 @@
+2024-03-25 18:54:52,714 - root - INFO - Namespace(agg_time_line='auto-encoder', backprop_every=1, bs=100, data='reddit', drop_out=0.1, embedding_module='graph_attention', gpu=0, hard_sample=True, k=3, lr=0.0001, n_degree=20, n_epoch=10, n_head=2, n_layer=1, n_runs=1, node_dim=100, path_prefix='./utils/data/', prefix='', sample_mode='time', time_dim=100, time_line_length=2, use_att=False, use_time_line=True)
+2024-03-25 18:55:02,886 - root - INFO - num of training instances: 470713
+2024-03-25 18:55:02,887 - root - INFO - num of batches per epoch: 4708
+2024-03-25 18:55:02,888 - root - INFO - start 0 epoch
+2024-03-25 19:07:57,496 - root - INFO - val auc:0.5936584397842788
+2024-03-25 19:07:57,496 - root - INFO - test auc: 0.568588586819629
+2024-03-25 19:07:57,497 - root - INFO - epoch: 0 took 774.61s
+2024-03-25 19:07:57,498 - root - INFO - Epoch mean loss: 0.003966815264181497
+2024-03-25 19:07:57,507 - root - INFO - start 1 epoch
+2024-03-25 19:20:51,638 - root - INFO - val auc:0.6499200181018032
+2024-03-25 19:20:51,638 - root - INFO - test auc: 0.5864094485795017
+2024-03-25 19:20:51,639 - root - INFO - epoch: 1 took 774.13s
+2024-03-25 19:20:51,640 - root - INFO - Epoch mean loss: 0.003411418944568963
+2024-03-25 19:20:51,650 - root - INFO - start 2 epoch
+2024-03-25 19:33:57,080 - root - INFO - val auc:0.6730395662343288
+2024-03-25 19:33:57,080 - root - INFO - test auc: 0.6048677235607055
+2024-03-25 19:33:57,081 - root - INFO - epoch: 2 took 785.43s
+2024-03-25 19:33:57,082 - root - INFO - Epoch mean loss: 0.003326095391514193
+2024-03-25 19:33:57,092 - root - INFO - start 3 epoch

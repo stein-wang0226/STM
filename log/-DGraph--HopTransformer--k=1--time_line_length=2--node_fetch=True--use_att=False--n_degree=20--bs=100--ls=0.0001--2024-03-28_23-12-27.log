@@ -1,0 +1,56 @@
+2024-03-28 23:12:27,322 - root - INFO - Namespace(data='DGraph', k=1, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=10, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='HopTransformer', agg_time_line='auto-encoder', use_time_line=True, time_line_length=2, sample_mode='time', hard_sample=True, use_att=False, node_fetch=True)
+2024-03-28 23:27:25,576 - root - INFO - num of training instances: 253550
+2024-03-28 23:27:25,576 - root - INFO - num of batches per epoch: 2536
+2024-03-28 23:27:25,576 - root - INFO - start 0 epoch
+2024-03-28 23:29:33,932 - root - INFO - val auc:0.6205005085767386
+2024-03-28 23:29:33,932 - root - INFO - test auc: 0.7370767751584646
+2024-03-28 23:29:33,933 - root - INFO - epoch: 0 took 128.36s
+2024-03-28 23:29:33,933 - root - INFO - Epoch mean loss: 342.774622246294
+2024-03-28 23:29:33,942 - root - INFO - start 1 epoch
+2024-03-28 23:31:40,165 - root - INFO - val auc:0.6201101811621502
+2024-03-28 23:31:40,165 - root - INFO - test auc: 0.7361202905775941
+2024-03-28 23:31:40,166 - root - INFO - epoch: 1 took 126.22s
+2024-03-28 23:31:40,166 - root - INFO - Epoch mean loss: 341.40577142998245
+2024-03-28 23:31:40,171 - root - INFO - start 2 epoch
+2024-03-28 23:33:46,268 - root - INFO - val auc:0.6283350495182125
+2024-03-28 23:33:46,268 - root - INFO - test auc: 0.7435147069297058
+2024-03-28 23:33:46,269 - root - INFO - epoch: 2 took 126.10s
+2024-03-28 23:33:46,269 - root - INFO - Epoch mean loss: 340.9932509641918
+2024-03-28 23:33:46,274 - root - INFO - start 3 epoch
+2024-03-28 23:35:52,621 - root - INFO - val auc:0.6317729131610451
+2024-03-28 23:35:52,622 - root - INFO - test auc: 0.7474428459511431
+2024-03-28 23:35:52,622 - root - INFO - epoch: 3 took 126.35s
+2024-03-28 23:35:52,623 - root - INFO - Epoch mean loss: 340.78081100295395
+2024-03-28 23:35:52,628 - root - INFO - start 4 epoch
+2024-03-28 23:37:58,978 - root - INFO - val auc:0.6434089605779776
+2024-03-28 23:37:58,978 - root - INFO - test auc: 0.7495708995085819
+2024-03-28 23:37:58,980 - root - INFO - epoch: 4 took 126.35s
+2024-03-28 23:37:58,980 - root - INFO - Epoch mean loss: 340.68899711223804
+2024-03-28 23:37:58,986 - root - INFO - start 5 epoch
+2024-03-28 23:40:06,666 - root - INFO - val auc:0.649212595541268
+2024-03-28 23:40:06,666 - root - INFO - test auc: 0.7512630866747383
+2024-03-28 23:40:06,667 - root - INFO - epoch: 5 took 127.68s
+2024-03-28 23:40:06,667 - root - INFO - Epoch mean loss: 340.6203787409545
+2024-03-28 23:40:06,672 - root - INFO - start 6 epoch
+2024-03-28 23:42:15,102 - root - INFO - val auc:0.6441283978367699
+2024-03-28 23:42:15,102 - root - INFO - test auc: 0.7524916316501674
+2024-03-28 23:42:15,103 - root - INFO - epoch: 6 took 128.43s
+2024-03-28 23:42:15,104 - root - INFO - Epoch mean loss: 340.54749931070705
+2024-03-28 23:42:15,110 - root - INFO - start 7 epoch
+2024-03-28 23:44:24,592 - root - INFO - val auc:0.6453485634276817
+2024-03-28 23:44:24,592 - root - INFO - test auc: 0.7516676162666478
+2024-03-28 23:44:24,593 - root - INFO - epoch: 7 took 129.48s
+2024-03-28 23:44:24,593 - root - INFO - Epoch mean loss: 340.5364088425501
+2024-03-28 23:44:24,598 - root - INFO - start 8 epoch
+2024-03-28 23:46:34,091 - root - INFO - val auc:0.6512317289097621
+2024-03-28 23:46:34,091 - root - INFO - test auc: 0.7531130261377394
+2024-03-28 23:46:34,092 - root - INFO - epoch: 8 took 129.49s
+2024-03-28 23:46:34,092 - root - INFO - Epoch mean loss: 340.49748455613195
+2024-03-28 23:46:34,098 - root - INFO - start 9 epoch
+2024-03-28 23:48:42,979 - root - INFO - val auc:0.6501196097144436
+2024-03-28 23:48:42,979 - root - INFO - test auc: 0.75275799444484
+2024-03-28 23:48:42,980 - root - INFO - epoch: 9 took 128.88s
+2024-03-28 23:48:42,980 - root - INFO - Epoch mean loss: 340.48072768009797
+2024-03-28 23:48:54,134 - root - INFO - test auc: 0.75275799444484
+2024-03-28 23:48:54,135 - root - INFO - Saving TGN model
+2024-03-28 23:48:54,140 - root - INFO - TGN model saved

@@ -1,0 +1,56 @@
+2024-03-28 11:54:31,246 - root - INFO - Namespace(data='DGraph', k=1, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=10, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='HopTransformer', agg_time_line='auto-encoder', use_time_line=True, time_line_length=2, sample_mode='time', hard_sample=True, use_att=False, node_fetch1=True, node_fetch2=False)
+2024-03-28 11:54:40,776 - root - INFO - num of training instances: 253550
+2024-03-28 11:54:40,784 - root - INFO - num of batches per epoch: 2536
+2024-03-28 11:54:40,784 - root - INFO - start 0 epoch
+2024-03-28 11:56:40,855 - root - INFO - val auc:0.6205005085767386
+2024-03-28 11:56:40,855 - root - INFO - test auc: 0.7370767751584646
+2024-03-28 11:56:40,856 - root - INFO - epoch: 0 took 120.07s
+2024-03-28 11:56:40,856 - root - INFO - Epoch mean loss: 342.774622246294
+2024-03-28 11:56:40,866 - root - INFO - start 1 epoch
+2024-03-28 11:58:38,724 - root - INFO - val auc:0.6201101811621502
+2024-03-28 11:58:38,724 - root - INFO - test auc: 0.7361202905775941
+2024-03-28 11:58:38,725 - root - INFO - epoch: 1 took 117.86s
+2024-03-28 11:58:38,725 - root - INFO - Epoch mean loss: 341.40577142998245
+2024-03-28 11:58:38,730 - root - INFO - start 2 epoch
+2024-03-28 12:00:40,092 - root - INFO - val auc:0.6283350495182125
+2024-03-28 12:00:40,092 - root - INFO - test auc: 0.7435147069297058
+2024-03-28 12:00:40,093 - root - INFO - epoch: 2 took 121.36s
+2024-03-28 12:00:40,093 - root - INFO - Epoch mean loss: 340.9932509641918
+2024-03-28 12:00:40,097 - root - INFO - start 3 epoch
+2024-03-28 12:02:40,028 - root - INFO - val auc:0.6317729131610451
+2024-03-28 12:02:40,028 - root - INFO - test auc: 0.7474428459511431
+2024-03-28 12:02:40,029 - root - INFO - epoch: 3 took 119.93s
+2024-03-28 12:02:40,029 - root - INFO - Epoch mean loss: 340.78081100295395
+2024-03-28 12:02:40,033 - root - INFO - start 4 epoch
+2024-03-28 12:04:42,383 - root - INFO - val auc:0.6434089605779776
+2024-03-28 12:04:42,383 - root - INFO - test auc: 0.7495708995085819
+2024-03-28 12:04:42,384 - root - INFO - epoch: 4 took 122.35s
+2024-03-28 12:04:42,384 - root - INFO - Epoch mean loss: 340.68899711223804
+2024-03-28 12:04:42,391 - root - INFO - start 5 epoch
+2024-03-28 12:06:42,760 - root - INFO - val auc:0.649212595541268
+2024-03-28 12:06:42,760 - root - INFO - test auc: 0.7512630866747383
+2024-03-28 12:06:42,761 - root - INFO - epoch: 5 took 120.37s
+2024-03-28 12:06:42,761 - root - INFO - Epoch mean loss: 340.6203787409545
+2024-03-28 12:06:42,768 - root - INFO - start 6 epoch
+2024-03-28 12:08:45,259 - root - INFO - val auc:0.6441283978367699
+2024-03-28 12:08:45,259 - root - INFO - test auc: 0.7524916316501674
+2024-03-28 12:08:45,261 - root - INFO - epoch: 6 took 122.49s
+2024-03-28 12:08:45,261 - root - INFO - Epoch mean loss: 340.54749931070705
+2024-03-28 12:08:45,272 - root - INFO - start 7 epoch
+2024-03-28 12:10:49,126 - root - INFO - val auc:0.6453485634276817
+2024-03-28 12:10:49,126 - root - INFO - test auc: 0.7516676162666478
+2024-03-28 12:10:49,128 - root - INFO - epoch: 7 took 123.86s
+2024-03-28 12:10:49,128 - root - INFO - Epoch mean loss: 340.5364088425501
+2024-03-28 12:10:49,133 - root - INFO - start 8 epoch
+2024-03-28 12:12:54,299 - root - INFO - val auc:0.6512317289097621
+2024-03-28 12:12:54,300 - root - INFO - test auc: 0.7531130261377394
+2024-03-28 12:12:54,300 - root - INFO - epoch: 8 took 125.17s
+2024-03-28 12:12:54,301 - root - INFO - Epoch mean loss: 340.49748455613195
+2024-03-28 12:12:54,305 - root - INFO - start 9 epoch
+2024-03-28 12:15:00,399 - root - INFO - val auc:0.6501196097144436
+2024-03-28 12:15:00,400 - root - INFO - test auc: 0.75275799444484
+2024-03-28 12:15:00,401 - root - INFO - epoch: 9 took 126.10s
+2024-03-28 12:15:00,401 - root - INFO - Epoch mean loss: 340.48072768009797
+2024-03-28 12:15:09,924 - root - INFO - test auc: 0.75275799444484
+2024-03-28 12:15:09,925 - root - INFO - Saving TGN model
+2024-03-28 12:15:09,931 - root - INFO - TGN model saved

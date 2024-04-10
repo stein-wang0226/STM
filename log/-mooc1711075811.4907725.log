@@ -1,0 +1,46 @@
+2024-03-22 10:50:11,490 - root - INFO - Namespace(data='mooc', k=1, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=8, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='HopTransformer', agg_time_line='auto-encoder', use_time_line=True, time_line_length=1, sample_mode='time', hard_sample=True, use_att=1)
+2024-03-22 10:50:12,992 - root - INFO - num of training instances: 288224
+2024-03-22 10:50:12,993 - root - INFO - num of batches per epoch: 2883
+2024-03-22 10:50:12,993 - root - INFO - start 0 epoch
+2024-03-22 10:54:14,694 - root - INFO - val auc:0.5102100707715986
+2024-03-22 10:54:14,694 - root - INFO - test auc: 0.4845933453201668
+2024-03-22 10:54:14,703 - root - INFO - epoch: 0 took 241.71s
+2024-03-22 10:54:14,703 - root - INFO - Epoch mean loss: 0.2501981393752301
+2024-03-22 10:54:14,707 - root - INFO - start 1 epoch
+2024-03-22 10:58:12,302 - root - INFO - val auc:0.5883618045925351
+2024-03-22 10:58:12,302 - root - INFO - test auc: 0.5496279576404999
+2024-03-22 10:58:12,302 - root - INFO - epoch: 1 took 237.60s
+2024-03-22 10:58:12,303 - root - INFO - Epoch mean loss: 0.06636932045040426
+2024-03-22 10:58:12,307 - root - INFO - start 2 epoch
+2024-03-22 11:02:14,553 - root - INFO - val auc:0.6365112847855788
+2024-03-22 11:02:14,554 - root - INFO - test auc: 0.5964873615462021
+2024-03-22 11:02:14,554 - root - INFO - epoch: 2 took 242.25s
+2024-03-22 11:02:14,555 - root - INFO - Epoch mean loss: 0.05853804502751842
+2024-03-22 11:02:14,559 - root - INFO - start 3 epoch
+2024-03-22 11:06:17,370 - root - INFO - val auc:0.6576083790141146
+2024-03-22 11:06:17,370 - root - INFO - test auc: 0.6137915880792884
+2024-03-22 11:06:17,371 - root - INFO - epoch: 3 took 242.81s
+2024-03-22 11:06:17,371 - root - INFO - Epoch mean loss: 0.056452193103299096
+2024-03-22 11:06:17,376 - root - INFO - start 4 epoch
+2024-03-22 11:10:14,905 - root - INFO - val auc:0.6703939719295281
+2024-03-22 11:10:14,905 - root - INFO - test auc: 0.6263864574977779
+2024-03-22 11:10:14,906 - root - INFO - epoch: 4 took 237.53s
+2024-03-22 11:10:14,907 - root - INFO - Epoch mean loss: 0.05570581027487841
+2024-03-22 11:10:14,912 - root - INFO - start 5 epoch
+2024-03-22 11:14:13,036 - root - INFO - val auc:0.6818398566897534
+2024-03-22 11:14:13,036 - root - INFO - test auc: 0.6381852627438016
+2024-03-22 11:14:13,037 - root - INFO - epoch: 5 took 238.12s
+2024-03-22 11:14:13,037 - root - INFO - Epoch mean loss: 0.05533751360041568
+2024-03-22 11:14:13,042 - root - INFO - start 6 epoch
+2024-03-22 11:18:10,943 - root - INFO - val auc:0.6979799139011708
+2024-03-22 11:18:10,944 - root - INFO - test auc: 0.6611255790173507
+2024-03-22 11:18:10,945 - root - INFO - epoch: 6 took 237.90s
+2024-03-22 11:18:10,945 - root - INFO - Epoch mean loss: 0.05489817819278009
+2024-03-22 11:18:10,952 - root - INFO - start 7 epoch
+2024-03-22 11:22:47,132 - root - INFO - val auc:0.7011303032281939
+2024-03-22 11:22:47,132 - root - INFO - test auc: 0.6553870490484603
+2024-03-22 11:22:47,133 - root - INFO - epoch: 7 took 276.18s
+2024-03-22 11:22:47,133 - root - INFO - Epoch mean loss: 0.054432918202613964
+2024-03-22 11:23:21,291 - root - INFO - test auc: 0.6553870490484603
+2024-03-22 11:23:21,292 - root - INFO - Saving TGN model
+2024-03-22 11:23:21,299 - root - INFO - TGN model saved

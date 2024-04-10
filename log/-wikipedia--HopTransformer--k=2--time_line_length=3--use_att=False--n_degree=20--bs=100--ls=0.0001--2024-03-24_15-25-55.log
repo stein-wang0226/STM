@@ -1,0 +1,56 @@
+2024-03-24 15:25:55,109 - root - INFO - Namespace(data='wikipedia', k=2, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=10, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='HopTransformer', agg_time_line='auto-encoder', use_time_line=True, time_line_length=3, sample_mode='time', hard_sample=True, use_att=False)
+2024-03-24 15:25:56,167 - root - INFO - num of training instances: 110232
+2024-03-24 15:25:56,167 - root - INFO - num of batches per epoch: 1103
+2024-03-24 15:25:56,169 - root - INFO - start 0 epoch
+2024-03-24 15:31:35,498 - root - INFO - val auc:0.5927360267950597
+2024-03-24 15:31:35,499 - root - INFO - test auc: 0.5939233922119785
+2024-03-24 15:31:35,499 - root - INFO - epoch: 0 took 339.33s
+2024-03-24 15:31:35,499 - root - INFO - Epoch mean loss: 0.023692549830821873
+2024-03-24 15:31:35,515 - root - INFO - start 1 epoch
+2024-03-24 15:37:10,080 - root - INFO - val auc:0.731386504779848
+2024-03-24 15:37:10,080 - root - INFO - test auc: 0.7766245609164555
+2024-03-24 15:37:10,081 - root - INFO - epoch: 1 took 334.57s
+2024-03-24 15:37:10,081 - root - INFO - Epoch mean loss: 0.010652245297009068
+2024-03-24 15:37:10,092 - root - INFO - start 2 epoch
+2024-03-24 15:42:51,016 - root - INFO - val auc:0.7722918348834197
+2024-03-24 15:42:51,016 - root - INFO - test auc: 0.8031334466949686
+2024-03-24 15:42:51,017 - root - INFO - epoch: 2 took 340.93s
+2024-03-24 15:42:51,017 - root - INFO - Epoch mean loss: 0.00950337182617504
+2024-03-24 15:42:51,031 - root - INFO - start 3 epoch
+2024-03-24 15:48:16,161 - root - INFO - val auc:0.7790404417994955
+2024-03-24 15:48:16,161 - root - INFO - test auc: 0.8215209738304279
+2024-03-24 15:48:16,162 - root - INFO - epoch: 3 took 325.13s
+2024-03-24 15:48:16,162 - root - INFO - Epoch mean loss: 0.009157844252223891
+2024-03-24 15:48:16,172 - root - INFO - start 4 epoch
+2024-03-24 15:53:46,120 - root - INFO - val auc:0.7903720206943987
+2024-03-24 15:53:46,121 - root - INFO - test auc: 0.8229640211762619
+2024-03-24 15:53:46,121 - root - INFO - epoch: 4 took 329.95s
+2024-03-24 15:53:46,121 - root - INFO - Epoch mean loss: 0.008817961825967023
+2024-03-24 15:53:46,132 - root - INFO - start 5 epoch
+2024-03-24 15:59:15,705 - root - INFO - val auc:0.8042280969327233
+2024-03-24 15:59:15,705 - root - INFO - test auc: 0.8443542821008148
+2024-03-24 15:59:15,706 - root - INFO - epoch: 5 took 329.57s
+2024-03-24 15:59:15,706 - root - INFO - Epoch mean loss: 0.008616534617737084
+2024-03-24 15:59:15,721 - root - INFO - start 6 epoch
+2024-03-24 16:04:41,003 - root - INFO - val auc:0.7707392565567152
+2024-03-24 16:04:41,003 - root - INFO - test auc: 0.8493080698832067
+2024-03-24 16:04:41,004 - root - INFO - epoch: 6 took 325.28s
+2024-03-24 16:04:41,004 - root - INFO - Epoch mean loss: 0.00812847153084177
+2024-03-24 16:04:41,016 - root - INFO - start 7 epoch
+2024-03-24 16:10:06,159 - root - INFO - val auc:0.7789631866981669
+2024-03-24 16:10:06,159 - root - INFO - test auc: 0.8202225204070224
+2024-03-24 16:10:06,160 - root - INFO - epoch: 7 took 325.14s
+2024-03-24 16:10:06,160 - root - INFO - Epoch mean loss: 0.0077415277081477754
+2024-03-24 16:10:06,172 - root - INFO - start 8 epoch
+2024-03-24 16:15:32,393 - root - INFO - val auc:0.772099943180119
+2024-03-24 16:15:32,393 - root - INFO - test auc: 0.8151077513909935
+2024-03-24 16:15:32,394 - root - INFO - epoch: 8 took 326.22s
+2024-03-24 16:15:32,394 - root - INFO - Epoch mean loss: 0.007322244829336643
+2024-03-24 16:15:32,405 - root - INFO - start 9 epoch
+2024-03-24 16:20:53,856 - root - INFO - val auc:0.7322712002950647
+2024-03-24 16:20:53,856 - root - INFO - test auc: 0.8073025714583164
+2024-03-24 16:20:53,857 - root - INFO - epoch: 9 took 321.45s
+2024-03-24 16:20:53,857 - root - INFO - Epoch mean loss: 0.006929857931394829
+2024-03-24 16:21:45,389 - root - INFO - test auc: 0.8073025714583164
+2024-03-24 16:21:45,390 - root - INFO - Saving TGN model
+2024-03-24 16:21:45,400 - root - INFO - TGN model saved

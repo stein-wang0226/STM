@@ -1,0 +1,34 @@
+2024-03-25 22:06:43,518 - root - INFO - Namespace(agg_time_line='auto-encoder', backprop_every=1, bs=100, data='reddit', drop_out=0.1, embedding_module='HopTransformer', gpu=0, hard_sample=True, k=1, lr=0.0001, n_degree=20, n_epoch=10, n_head=2, n_layer=1, n_runs=1, node_dim=100, path_prefix='./utils/data/', prefix='', sample_mode='time', time_dim=100, time_line_length=2, use_att=False, use_time_line=True)
+2024-03-25 22:06:55,535 - root - INFO - num of training instances: 470713
+2024-03-25 22:06:55,535 - root - INFO - num of batches per epoch: 4708
+2024-03-25 22:06:55,536 - root - INFO - start 0 epoch
+2024-03-25 22:21:29,093 - root - INFO - val auc:0.66517520391754
+2024-03-25 22:21:29,093 - root - INFO - test auc: 0.6020582704207117
+2024-03-25 22:21:29,094 - root - INFO - epoch: 0 took 873.56s
+2024-03-25 22:21:29,095 - root - INFO - Epoch mean loss: 0.005256092319046179
+2024-03-25 22:21:29,108 - root - INFO - start 1 epoch
+2024-03-25 22:35:34,726 - root - INFO - val auc:0.6616870372454282
+2024-03-25 22:35:34,727 - root - INFO - test auc: 0.6015967845152714
+2024-03-25 22:35:34,728 - root - INFO - epoch: 1 took 845.62s
+2024-03-25 22:35:34,728 - root - INFO - Epoch mean loss: 0.0033647650449897897
+2024-03-25 22:35:34,739 - root - INFO - start 2 epoch
+2024-03-25 22:49:26,594 - root - INFO - val auc:0.668892728665343
+2024-03-25 22:49:26,594 - root - INFO - test auc: 0.5876388812352853
+2024-03-25 22:49:26,595 - root - INFO - epoch: 2 took 831.86s
+2024-03-25 22:49:26,596 - root - INFO - Epoch mean loss: 0.0031293695444695336
+2024-03-25 22:49:26,607 - root - INFO - start 3 epoch
+2024-03-25 23:03:14,148 - root - INFO - val auc:0.6910432374155562
+2024-03-25 23:03:14,148 - root - INFO - test auc: 0.6007539908000518
+2024-03-25 23:03:14,149 - root - INFO - epoch: 3 took 827.54s
+2024-03-25 23:03:14,150 - root - INFO - Epoch mean loss: 0.0029884621478325065
+2024-03-25 23:03:14,161 - root - INFO - start 4 epoch
+2024-03-25 23:16:51,447 - root - INFO - val auc:0.7037360379557063
+2024-03-25 23:16:51,448 - root - INFO - test auc: 0.6306515528581089
+2024-03-25 23:16:51,449 - root - INFO - epoch: 4 took 817.29s
+2024-03-25 23:16:51,449 - root - INFO - Epoch mean loss: 0.0027904723799461227
+2024-03-25 23:16:51,460 - root - INFO - start 5 epoch
+2024-03-25 23:30:20,173 - root - INFO - val auc:0.6995138165401598
+2024-03-25 23:30:20,174 - root - INFO - test auc: 0.6283514602336703
+2024-03-25 23:30:20,175 - root - INFO - epoch: 5 took 808.71s
+2024-03-25 23:30:20,175 - root - INFO - Epoch mean loss: 0.002653362340245327
+2024-03-25 23:30:20,187 - root - INFO - start 6 epoch

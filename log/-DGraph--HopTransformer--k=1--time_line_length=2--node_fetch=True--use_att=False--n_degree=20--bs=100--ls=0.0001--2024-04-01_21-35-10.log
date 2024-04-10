@@ -1,0 +1,56 @@
+2024-04-01 21:35:10,948 - root - INFO - Namespace(data='DGraph', k=1, bs=100, prefix='', path_prefix='./utils/data/', n_degree=20, n_head=2, n_epoch=10, n_layer=1, lr=0.0001, n_runs=1, drop_out=0.1, gpu=0, node_dim=100, time_dim=100, backprop_every=1, embedding_module='HopTransformer', agg_time_line='auto-encoder', use_time_line=True, time_line_length=2, sample_mode='time', hard_sample=True, use_att=False, node_fetch=True)
+2024-04-01 21:39:57,541 - root - INFO - num of training instances: 290239
+2024-04-01 21:39:57,543 - root - INFO - num of batches per epoch: 2903
+2024-04-01 21:39:57,543 - root - INFO - start 0 epoch
+2024-04-01 21:42:27,098 - root - INFO - val auc:0.6288743362369486
+2024-04-01 21:42:27,098 - root - INFO - test auc: 0.7371157763774592
+2024-04-01 21:42:27,099 - root - INFO - epoch: 0 took 149.56s
+2024-04-01 21:42:27,099 - root - INFO - Epoch mean loss: 337.8728331625975
+2024-04-01 21:42:27,105 - root - INFO - start 1 epoch
+2024-04-01 21:45:01,935 - root - INFO - val auc:0.6176475107973147
+2024-04-01 21:45:01,935 - root - INFO - test auc: 0.7427642731982506
+2024-04-01 21:45:01,936 - root - INFO - epoch: 1 took 154.83s
+2024-04-01 21:45:01,936 - root - INFO - Epoch mean loss: 336.4988187946946
+2024-04-01 21:45:01,941 - root - INFO - start 2 epoch
+2024-04-01 21:47:37,951 - root - INFO - val auc:0.6307012933727039
+2024-04-01 21:47:37,952 - root - INFO - test auc: 0.7536870747007176
+2024-04-01 21:47:37,954 - root - INFO - epoch: 2 took 156.01s
+2024-04-01 21:47:37,954 - root - INFO - Epoch mean loss: 336.1334023260471
+2024-04-01 21:47:37,959 - root - INFO - start 3 epoch
+2024-04-01 21:50:04,727 - root - INFO - val auc:0.6332608774158055
+2024-04-01 21:50:04,727 - root - INFO - test auc: 0.7541417561387931
+2024-04-01 21:50:04,728 - root - INFO - epoch: 3 took 146.77s
+2024-04-01 21:50:04,728 - root - INFO - Epoch mean loss: 335.9593882782477
+2024-04-01 21:50:04,733 - root - INFO - start 4 epoch
+2024-04-01 21:52:27,743 - root - INFO - val auc:0.6345106075309589
+2024-04-01 21:52:27,744 - root - INFO - test auc: 0.7558923390332737
+2024-04-01 21:52:27,745 - root - INFO - epoch: 4 took 143.01s
+2024-04-01 21:52:27,746 - root - INFO - Epoch mean loss: 335.8651202625954
+2024-04-01 21:52:27,751 - root - INFO - start 5 epoch
+2024-04-01 21:54:49,029 - root - INFO - val auc:0.6366823641682053
+2024-04-01 21:54:49,029 - root - INFO - test auc: 0.7565835023054605
+2024-04-01 21:54:49,030 - root - INFO - epoch: 5 took 141.28s
+2024-04-01 21:54:49,031 - root - INFO - Epoch mean loss: 335.8099456114314
+2024-04-01 21:54:49,036 - root - INFO - start 6 epoch
+2024-04-01 21:57:13,080 - root - INFO - val auc:0.6384599544672569
+2024-04-01 21:57:13,080 - root - INFO - test auc: 0.7569242165945667
+2024-04-01 21:57:13,081 - root - INFO - epoch: 6 took 144.04s
+2024-04-01 21:57:13,081 - root - INFO - Epoch mean loss: 335.76274662891666
+2024-04-01 21:57:13,086 - root - INFO - start 7 epoch
+2024-04-01 21:59:38,745 - root - INFO - val auc:0.6394346133366525
+2024-04-01 21:59:38,745 - root - INFO - test auc: 0.7571008656754691
+2024-04-01 21:59:38,746 - root - INFO - epoch: 7 took 145.66s
+2024-04-01 21:59:38,746 - root - INFO - Epoch mean loss: 335.72025182647127
+2024-04-01 21:59:38,751 - root - INFO - start 8 epoch
+2024-04-01 22:01:58,273 - root - INFO - val auc:0.6473202451668522
+2024-04-01 22:01:58,273 - root - INFO - test auc: 0.7591147601703809
+2024-04-01 22:01:58,274 - root - INFO - epoch: 8 took 139.52s
+2024-04-01 22:01:58,274 - root - INFO - Epoch mean loss: 335.7084423962684
+2024-04-01 22:01:58,279 - root - INFO - start 9 epoch
+2024-04-01 22:04:18,996 - root - INFO - val auc:0.6458173419358407
+2024-04-01 22:04:18,997 - root - INFO - test auc: 0.7589032086501066
+2024-04-01 22:04:18,998 - root - INFO - epoch: 9 took 140.72s
+2024-04-01 22:04:18,998 - root - INFO - Epoch mean loss: 335.67331485308085
+2024-04-01 22:04:31,105 - root - INFO - test auc: 0.7589032086501066
+2024-04-01 22:04:31,105 - root - INFO - Saving TGN model
+2024-04-01 22:04:31,111 - root - INFO - TGN model saved
