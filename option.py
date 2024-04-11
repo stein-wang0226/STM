@@ -1,10 +1,11 @@
 import argparse
 import sys
+
 ### Argument and global variables
 parser = argparse.ArgumentParser('TGN self-supervised training')
 parser.add_argument('-d', '--data', type=str, help='Dataset name (eg. wikipedia or reddit)',
                     default='DGraph', choices=['reddit', 'mooc', 'wikipedia', 'DGraph'])
-parser.add_argument('-k','--k', type=int, help='hop of neighbor', default='1')
+parser.add_argument('-k', '--k', type=int, help='hop of neighbor', default='1')
 parser.add_argument('--bs', type=int, default=200, help='Batch_size')
 parser.add_argument('--prefix', type=str, default='', help='Prefix to name the checkpoints')
 parser.add_argument('--path_prefix', type=str, default='./utils/data/')
@@ -29,9 +30,15 @@ parser.add_argument('--use_time_line', action='store_true')
 parser.add_argument('--time_line_length', type=int, default=1)
 parser.add_argument('--sample_mode', type=str, default='random')
 parser.add_argument('--hard_sample', action='store_true')
-parser.add_argument('--use_att',  action='store_true', help='whether use att layer or not')
-parser.add_argument('--node_fetch',  action='store_true', help='whether node_fetch or not')
-
+parser.add_argument('--use_att', action='store_true', help='whether use att layer or not')
+parser.add_argument('--node_fetch', action='store_true', help='whether node_fetch or not')
+parser.add_argument('--d1', type=int, default=3)
+parser.add_argument('--d2', type=int, default=2)
+parser.add_argument('--k2', type=int, default=1)
+parser.add_argument('--DGraph_size', type=int, default=1100000)
+# Spatio-Temporal distance
+parser.add_argument('--use_ST_dist', action='store_true', default=True,
+                    help='use Spatio-Temporal distance')
 try:
     args = parser.parse_args()
 except:

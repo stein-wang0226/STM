@@ -1,1 +1,10 @@
 data/
+*.log
+results/
+*.npz
+*.csv
+/.idea
+__pycache__/option.cpython-39.pyc
+/utils/__pycache__
+*.pyc
+utils/__pycache__/data_processing.cpython-39.pyc
