@@ -196,7 +196,7 @@ class GraghHopTransformer(GraphEmbedding):
         if n_layers == 0:
             return source_node_features
         else:
-            neighbors, edge_idxs, edge_times = self.neighbor_finder.find_k_hop(
+            neighbors, edge_idxs, edge_times = self.neighbor_finder.find_k_closest_byTimeAndSpace(
                 source_nodes,
                 timestamps,
                 n_neighbors=n_neighbors, K=self.k)

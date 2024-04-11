@@ -317,7 +317,7 @@ class NeighborFinder:
             neighbors_hop1 = neighbors[:, k, :]
         return neighbors, edge_idxs, edge_times
 
-    def get_temporal_hopK_neighbors(self, source_nodes, timestamps, n_neighbors=20, K=2):
+    def find_k_closest_byTimeAndSpace(self, source_nodes, timestamps, n_neighbors=20, K=2):
         # assert (len(source_nodes) == len(timestamps))
 
         tmp_n_neighbors = n_neighbors if n_neighbors > 0 else 1
@@ -340,30 +340,52 @@ class NeighborFinder:
             neighbors_time = [timestamp] * length
             neighbors_time_list.append(np.array(neighbors_time))
 
-        #
-        for i, (neighbor_arr, neighbors_time) in enumerate(zip(neighbors_hop1, neighbors_time_list)):
-            nonzero_indices = np.nonzero(neighbor_arr)
-            nonzero_elements = neighbor_arr[nonzero_indices]
+        for k in range(1, K, 1):
+            for i, (neighbor_arr, neighbors_time) in enumerate(zip(neighbors_hop1, neighbors_time_list)):
+                nonzero_indices = np.nonzero(neighbor_arr)
+                nonzero_elements = neighbor_arr[nonzero_indices]
 
-            nonzero_time = neighbors_time[nonzero_indices]
-            if len(nonzero_elements) != 0:
-                neighbors_hop2, edge_idxs_hop2, edge_times_hop2 = self.get_temporal_neighbor(nonzero_elements,
-                                                                                             nonzero_time,
-                                                                                             n_neighbors)
-                # 堆叠一下，用于比较得出不重复元素
-                stack = np.dstack((neighbors_hop2, edge_times_hop2, edge_idxs_hop2))
-                # 将元组转换为类型
-                void_arr = stack.view(np.dtype((np.void, stack.dtype.itemsize * stack.shape[2])))
+                nonzero_time = neighbors_time[nonzero_indices]
+                if len(nonzero_elements) != 0:
+                    neighbors_hop2, edge_idxs_hop2, edge_times_hop2 = self.get_temporal_neighbor(nonzero_elements,
+                                                                                                 nonzero_time,
+                                                                                                 n_neighbors)
+                    # 堆叠一下，用于比较得出不重复元素
+                    stack = np.dstack((neighbors_hop2, edge_times_hop2, edge_idxs_hop2))
+                    # 将元组转换为类型
+                    void_arr = stack.view(np.dtype((np.void, stack.dtype.itemsize * stack.shape[2])))
 
-                # 获取不重复的元组
-                unique_void = np.unique(void_arr)
-                # 将void类型转换回元组
-                unique_tuples = unique_void.view(stack.dtype).reshape(-1, stack.shape[2])
-                # todo 根据时间进行对unique_tuples排序 取前20
-                unique_tuples_sorted = unique_tuples[unique_tuples[:, 1].argsort()]
+                    # 获取不重复的元组
+                    unique_void = np.unique(void_arr)
 
-                neighbors[i, 1, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 0]
-                edge_idxs[i, 1, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 2]
-                edge_times[i, 1, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 1]
+                    # 将void类型转换回元组
+                    unique_tuples = unique_void.view(stack.dtype).reshape(-1, stack.shape[2])
+
+                    # 根据时间进行对unique_tuples排序
+                    unique_tuples_sorted = unique_tuples[unique_tuples[:, 1].argsort()]
+
+                    neighbors[i, k, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 0]
+                    edge_idxs[i, k, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 2]
+                    edge_times[i, k, -len(unique_tuples_sorted):] = unique_tuples_sorted[:n_neighbors, 1]
+
+            neighbors_hop1 = neighbors[:, k, :]
+
+        timestamps_repeeat = np.repeat(timestamps, K*n_neighbors).reshape((len(neighbors), -1))
+        neighbors = neighbors.reshape((len(neighbors), -1))
+        edge_idxs = edge_idxs.reshape((len(neighbors), -1))
+        edge_times = edge_times.reshape((len(neighbors), -1))
+        deltaTimeScore = timestamps_repeeat - edge_times
+        hop = np.zeros((len(neighbors), K*n_neighbors))
+        for i in range(1, K+1, 1):
+            hop[:, (i-1)*n_neighbors:i*n_neighbors] = i
+        score = deltaTimeScore*hop
+        sorted_indices = np.argsort(score, axis=1)
+        neighbors = neighbors[np.arange(neighbors.shape[0])[:, None], sorted_indices]
+        edge_idxs = edge_idxs[np.arange(edge_idxs.shape[0])[:, None], sorted_indices]
+        edge_times = edge_times[np.arange(edge_times.shape[0])[:, None], sorted_indices]
+
+        neighbors = neighbors[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
+        edge_idxs = edge_idxs[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
+        edge_times = edge_times[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
 
         return neighbors, edge_idxs, edge_times
