@@ -187,6 +187,10 @@ for i in range(args.n_runs):
         logger.info("val auc:{}".format(val_auc))
         logger.info(
             'test auc: {}'.format(test_auc))
+        logger.info(
+            'max test auc: {}'.format(max_test_auc))
+        logger.info(
+            'max val auc: {}'.format(max_val_auc))
         train_losses.append(np.mean(m_loss))
 
         # Save temporary results to disk
