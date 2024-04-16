@@ -15,7 +15,7 @@ class TGN(torch.nn.Module):
                  time_line_length=1, agg_time_line="auto-encoder",
                  k=2,
                  data="DGraph",use_att = 0,
-                 type_of_find_k_closest="deascending"):
+                 type_of_find_k_closest="descending"):
         super(TGN, self).__init__()
         self.use_att = use_att
         self.n_layers = n_layers

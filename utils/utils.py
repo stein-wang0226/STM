@@ -317,7 +317,7 @@ class NeighborFinder:
             neighbors_hop1 = neighbors[:, k, :]
         return neighbors, edge_idxs, edge_times
 
-    def find_k_closest_byTimeAndSpace(self, source_nodes, timestamps, n_neighbors=20, K=2, type_of_find_k_closest="deascending"):
+    def find_k_closest_byTimeAndSpace(self, source_nodes, timestamps, n_neighbors=20, K=2, type_of_find_k_closest="descending"):
         # assert (len(source_nodes) == len(timestamps))
 
         tmp_n_neighbors = n_neighbors if n_neighbors > 0 else 1
@@ -381,7 +381,7 @@ class NeighborFinder:
         score = deltaTimeScore*hop
         # 按照分数从小到大进行排序，然后取得其对应的索引
         sorted_indices = np.argsort(score, axis=1)
-        if type_of_find_k_closest == "deascending":
+        if type_of_find_k_closest == "descending":
             sorted_indices = sorted_indices[:, ::-1]
             neighbors = neighbors[np.arange(neighbors.shape[0])[:, None], sorted_indices]
             edge_idxs = edge_idxs[np.arange(edge_idxs.shape[0])[:, None], sorted_indices]

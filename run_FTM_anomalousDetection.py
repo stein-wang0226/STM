@@ -45,7 +45,7 @@ parser.add_argument('--embedding_module', type=str, default="HopTransformer", ch
     "graph_attention", "graph_sum", "identity", "time", "HopTransformer"], help='Type of embedding module')
 
 parser.add_argument('--agg_time_line', type=str, default="auto-encoder", choices=['linear', 'auto-encoder'])
-parser.add_argument('--type_of_find_k_closest', type=str, default="deascending", choices=["ascending", "deascending"])
+parser.add_argument('--type_of_find_k_closest', type=str, default="descending", choices=["ascending", "descending"])
 
 parser.add_argument('--use_time_line', action='store_true')
 parser.add_argument('--time_line_length', type=int, default=1)

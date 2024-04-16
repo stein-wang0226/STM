@@ -258,7 +258,7 @@ class GraghHopTransformer(GraphEmbedding):
 def get_embedding_module(module_type, node_features, edge_features, neighbor_finder,  #
                          time_encoder, n_layers, n_node_features, n_edge_features, n_time_features,
                          embedding_dimension, device,
-                         n_heads=2, dropout=0.1, n_neighbors=20, k=2, use_att=0, type_of_find_k_closest="deascending"):
+                         n_heads=2, dropout=0.1, n_neighbors=20, k=2, use_att=0, type_of_find_k_closest="descending"):
     if module_type == "graph_attention":
         return GraphAttentionEmbedding(node_features=node_features,
                                        edge_features=edge_features,
