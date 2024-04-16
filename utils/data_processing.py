@@ -276,7 +276,7 @@ def bfs_within_d2(G, source, d2, labels):
 
 from concurrent.futures import ThreadPoolExecutor
 import numpy as np
-
+import os
 
 def process_data(data, max_time_steps=32, node_fetch=True):
     # 对边的时间进行处理  # todo Dgraph
@@ -291,7 +291,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     random.seed(123)
     random.seed(123)
     ori_len = len(labels)  # 即结点数
-    # length =2500000
+    length =2500000
     length = args.DGraph_size
     logger.info(f'Graph size:{length}')
     nodes_slices = np.arange(0, length)
@@ -313,8 +313,8 @@ def process_data(data, max_time_steps=32, node_fetch=True):
         save_path = f'utils/fetched_data.npz'
         logger.info('start node fetching ')
         ######################################################### todo node-fetch
-        saved = False
-        if not saved:
+        saved = True
+        if not saved or not os.path.exists(save_path):
             # todo 加入到args
             d1 = args.d1   # todo   sd小于的d1的保留   越小删越多？ 发现>=3 都相等(选不了的都是没有与两个target 连通的bg node ——通过隶属fetch)
             d2 = args.d2  # todo 取d2跳的k个最相似的
