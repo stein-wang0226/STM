@@ -7,9 +7,42 @@ from utils.utils import special_optimize
 import networkx as nx
 from tqdm import trange
 from scipy.stats import pearsonr
-import logging
-from run_FTM_anomalousDetection import  logger
+
 from option import args
+
+import logging
+
+import torch
+
+from pathlib import Path
+from datetime import datetime
+
+
+### set up logger
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+Path("log/").mkdir(parents=True, exist_ok=True)
+log_filename = 'log/{}-{}.log'.format(
+    args.prefix,
+    '--'.join([args.data, args.embedding_module, f'k={args.k}', f'time_line_length={args.time_line_length}',
+               f'node_fetch={args.node_fetch}', f'use_att={args.use_att}', f'n_degree={args.n_degree}', f'bs={args.bs}',
+               f'ls={args.lr}', datetime.now().strftime('%Y-%m-%d_%H-%M-%S')])
+)
+fh = logging.FileHandler(log_filename)
+
+fh.setLevel(logging.DEBUG)
+ch = logging.StreamHandler()
+ch.setLevel(logging.WARN)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+logger.addHandler(fh)
+logger.addHandler(ch)
+logger.info(args)
+
+
 class Data:
     def __init__(self, sources, destinations, timestamps, edge_idxs, labels, entropy=None, labelsOfDes=None):
         self.sources = sources
@@ -294,9 +327,9 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             G.add_edges_from(elist.tolist())
             logger.info("原子图点数:{}，边数：{}".format(G.number_of_nodes(), G.number_of_edges()))
             density = nx.density(G)
-            logger.info("Density of the graph:", density)
             average_degree = sum(dict(G.degree()).values()) / len(G)
-            logger.info("Average degree of the graph:", average_degree)
+            logger.info(f"Density of the graph: {density}")
+            logger.info(f"Average degree of the graph: {average_degree}")
             # 将列表 nodes 转换为集合
             # 使用集合来查找节点
             bg_nodes = [i for i in nodes if labels[i] in [2, 3]]

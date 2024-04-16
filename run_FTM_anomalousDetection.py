@@ -12,7 +12,7 @@ from datetime import datetime
 from utils.evaluation import eval_anomalyDetection
 from model.tgn import TGN
 from utils.utils import RandEdgeSampler, get_neighbor_finder
-from utils.data_processing import get_data, compute_time_statistics, get_data_Dgraphfin
+from utils.data_processing import get_data, compute_time_statistics, get_data_Dgraphfin,logger
 import tqdm
 import os
 
@@ -42,28 +42,28 @@ get_checkpoint_path = lambda \
         epoch: f'{args.path_prefix}saved_checkpoints/{args.prefix}-{args.data}-{epoch}.pth'
 
 ### set up logger
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
-Path("log/").mkdir(parents=True, exist_ok=True)
-log_filename = 'log/{}-{}.log'.format(
-    args.prefix,
-    '--'.join([args.data, args.embedding_module, f'k={args.k}', f'time_line_length={args.time_line_length}',
-               f'node_fetch={args.node_fetch}', f'use_att={args.use_att}', f'n_degree={args.n_degree}', f'bs={args.bs}',
-               f'ls={args.lr}', datetime.now().strftime('%Y-%m-%d_%H-%M-%S')])
-)
-fh = logging.FileHandler(log_filename)
-
-fh.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-ch.setLevel(logging.WARN)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-fh.setFormatter(formatter)
-ch.setFormatter(formatter)
-logger.addHandler(fh)
-logger.addHandler(ch)
-logger.info(args)
+#
+# logging.basicConfig(level=logging.INFO)
+# logger = logging.getLogger()
+# logger.setLevel(logging.DEBUG)
+# Path("log/").mkdir(parents=True, exist_ok=True)
+# log_filename = 'log/{}-{}.log'.format(
+#     args.prefix,
+#     '--'.join([args.data, args.embedding_module, f'k={args.k}', f'time_line_length={args.time_line_length}',
+#                f'node_fetch={args.node_fetch}', f'use_att={args.use_att}', f'n_degree={args.n_degree}', f'bs={args.bs}',
+#                f'ls={args.lr}', datetime.now().strftime('%Y-%m-%d_%H-%M-%S')])
+# )
+# fh = logging.FileHandler(log_filename)
+#
+# fh.setLevel(logging.DEBUG)
+# ch = logging.StreamHandler()
+# ch.setLevel(logging.WARN)
+# formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# fh.setFormatter(formatter)
+# ch.setFormatter(formatter)
+# logger.addHandler(fh)
+# logger.addHandler(ch)
+# logger.info(args)
 
 print(args.data)
 
@@ -225,6 +225,7 @@ for i in range(args.n_runs):
         'max test auc: {}'.format(max_test_auc))
     logger.info(
         'max val auc: {}'.format(max_val_auc))
+    logger.info("mean epoch time:".format(np.mean(total_epoch_times)))
     # Save results for this run
     pickle.dump({
         "val_aps": val_aps,
