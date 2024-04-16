@@ -138,7 +138,7 @@ for i in range(args.n_runs):
               time_line_length=args.time_line_length, agg_time_line=args.agg_time_line, k=args.k,
               data=args.data,
               use_att=args.use_att,
-              type_of_find_k_closest=args.type_of_find_k_closest)  # todo agg time
+              type_of_find_k_closest=args.type_of_find_k_closest)
 
     criterion = torch.nn.BCELoss()
     if DATA == "DGraph":
