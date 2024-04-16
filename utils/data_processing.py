@@ -258,7 +258,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     random.seed(123)
     random.seed(123)
     ori_len = len(labels)  # 即结点数
-    # length =2000000
+    # length =2500000
     length = args.DGraph_size
     print(f'Graph size:{length}')
     nodes_slices = np.arange(0, length)
@@ -352,7 +352,6 @@ def process_data(data, max_time_steps=32, node_fetch=True):
 
             save_bg_node_l = list(np.unique(save_bg_node_l))
             save_node_l = np.unique(save_bg_node_l + target_nodes)
-            print(f'选取总节点数:{len(save_node_l)} ，背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
             del_mask = ~np.isin(elist, save_node_l)
             # # todo 更新elist timestamps new_labels unique_nodes   保存为npz
             elist[del_mask] = -1
@@ -367,7 +366,8 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             # for i in range(len(elist)):
             #     new_labels[i] = labels[elist[i][0]]
             #
-            print(f'压缩后点数：{len(save_node_l)},边数：{len(elist)}')
+            print(f'压缩后点数:{len(save_node_l)} ，背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
+            # print(f'压缩后点数：{len(save_node_l)},边数：{len(elist)}')
             # todo 存
             np.savez(save_path, elist=elist, timestamps=timestamps)
 
