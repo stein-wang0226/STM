@@ -309,15 +309,16 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     # new_labels = torch.zeros(elist.shape[0])
     # edge_features = np.zeros((len(elist), 17))
     use_fetch = node_fetch  # bool
+    d1 = args.d1  # todo   sd小于的d1的保留   越小删越多？ 发现>=3 都相等(选不了的都是没有与两个target 连通的bg node ——通过隶属fetch)
+    d2 = args.d2  # todo 取d2跳的k个最相似的
+    k = args.k2
     if use_fetch:
-        save_path = f'utils/fetched_data.npz'
+        # save_path = f'utils/fetched_data.npz'
+        save_path = f'utils/fetched_data_len{length}_{d1}{d2}{k}.npz'
         logger.info('start node fetching ')
         ######################################################### todo node-fetch
         saved = True
         if not saved or not os.path.exists(save_path):
-            # todo 加入到args
-            d1 = args.d1   # todo   sd小于的d1的保留   越小删越多？ 发现>=3 都相等(选不了的都是没有与两个target 连通的bg node ——通过隶属fetch)
-            d2 = args.d2  # todo 取d2跳的k个最相似的
             k = args.k
             save_path = f'utils/fetched_data_len{length}_{d1}{d2}{k}.npz'
             nodes = np.unique(elist.flatten())  # elist 中所有点
@@ -402,7 +403,11 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             # print(f'压缩后点数：{len(save_node_l)},边数：{len(elist)}')
             # todo 存
             np.savez(save_path, elist=elist, timestamps=timestamps)
-
+        else:
+            logger.info(f'use the npz file in {save_path}')
+            logger.info('use saved npz file')
+            if not os.path.exists(save_path):
+                logger.info('saved file don\'t exist')
         # todo 取
         loaded_data = np.load(save_path)
         elist = loaded_data['elist']
