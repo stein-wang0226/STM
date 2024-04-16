@@ -291,7 +291,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     random.seed(123)
     random.seed(123)
     ori_len = len(labels)  # 即结点数
-    length =2500000
+    # length =2500000
     length = args.DGraph_size
     logger.info(f'Graph size:{length}')
     nodes_slices = np.arange(0, length)
@@ -305,7 +305,9 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     elist = np.delete(elist, rows_to_delete, axis=0)  # 删除
     timestamps = np.delete(data.edge_time, rows_to_delete, axis=0)
     timestamps = timestamps.squeeze()
-    # nodes  = np.unique(elist.flatten()) # elist 中所有点
+    nodes  = np.unique(elist.flatten()) # elist 中所有点
+    node_num = len(nodes)
+    logger.info(f'node_size:{node_num}')
     # new_labels = torch.zeros(elist.shape[0])
     # edge_features = np.zeros((len(elist), 17))
     use_fetch = node_fetch  # bool
