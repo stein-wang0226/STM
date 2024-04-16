@@ -39,6 +39,9 @@ parser.add_argument('--DGraph_size', type=int, default=1100000)
 # Spatio-Temporal distance
 parser.add_argument('--use_ST_dist', action='store_true', default=True,
                     help='use Spatio-Temporal distance')
+parser.add_argument('--type_of_find_k_closest', type=str, default="descending", choices=["ascending", "descending"])
+
+
 try:
     args = parser.parse_args()
 except:

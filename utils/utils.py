@@ -398,5 +398,5 @@ class NeighborFinder:
             neighbors = neighbors[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
             edge_idxs = edge_idxs[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
             edge_times = edge_times[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
-
+        # todo random
         return neighbors, edge_idxs, edge_times
