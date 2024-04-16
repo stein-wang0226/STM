@@ -8,7 +8,7 @@ import networkx as nx
 from tqdm import trange
 from scipy.stats import pearsonr
 import logging
-
+from run_FTM_anomalousDetection import  logger
 from option import args
 class Data:
     def __init__(self, sources, destinations, timestamps, edge_idxs, labels, entropy=None, labelsOfDes=None):
@@ -86,14 +86,14 @@ def get_data(dataset_name, path_prefix='./utils/data',
         datapath = path_prefix + "/dgraphfin.npz"
         origin_data = np.load(datapath)
         data = build_tg_data(is_undirected=False, datapath=datapath)
-        print("读取数据完毕")
+        logger.info("读取数据完毕")
         return process_data(data, node_fetch=node_fetch)
     else:
         g_df = pd.read_csv(path_prefix + '/ml_{}.csv'.format(dataset_name))
         e_feat = np.load(path_prefix + '/ml_{}.npy'.format(dataset_name))
         n_feat = np.load(path_prefix + '/ml_{}.npy'.format(dataset_name))
         val_time, test_time = list(np.quantile(g_df.ts, [0.70, 0.85]))
-        print("读取数据完毕")
+        logger.info("读取数据完毕")
 
         src_l = g_df.u.values
         dst_l = g_df.i.values
@@ -260,7 +260,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     ori_len = len(labels)  # 即结点数
     # length =2500000
     length = args.DGraph_size
-    print(f'Graph size:{length}')
+    logger.info(f'Graph size:{length}')
     nodes_slices = np.arange(0, length)
     data.edge_index = data.edge_index.T  #
     elist = data.edge_index  # [n,2]
@@ -278,7 +278,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     use_fetch = node_fetch  # bool
     if use_fetch:
         save_path = f'utils/fetched_data.npz'
-        print('start node fetching ')
+        logger.info('start node fetching ')
         ######################################################### todo node-fetch
         saved = False
         if not saved:
@@ -292,17 +292,17 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             # 添加节点 构图
             G = nx.Graph()
             G.add_edges_from(elist.tolist())
-            print("原子图点数:{}，边数：{}".format(G.number_of_nodes(), G.number_of_edges()))
+            logger.info("原子图点数:{}，边数：{}".format(G.number_of_nodes(), G.number_of_edges()))
             density = nx.density(G)
-            print("Density of the graph:", density)
+            logger.info("Density of the graph:", density)
             average_degree = sum(dict(G.degree()).values()) / len(G)
-            print("Average degree of the graph:", average_degree)
+            logger.info("Average degree of the graph:", average_degree)
             # 将列表 nodes 转换为集合
             # 使用集合来查找节点
             bg_nodes = [i for i in nodes if labels[i] in [2, 3]]
             target_nodes = [i for i in nodes if labels[i] in [0, 1]]
             save_bg_node_l = []
-            print(f'当前总节点数:{len(nodes),} ，背景节点数：{len(bg_nodes)},目标节点数：{len(target_nodes)}')
+            logger.info(f'当前总节点数:{len(nodes),} ，背景节点数：{len(bg_nodes)},目标节点数：{len(target_nodes)}')
             # todo step1 bfs Bridging Background Node Fetching 背景节点j 到两最近目标节点距离之和<d1
             for node_i in trange(len(bg_nodes)):
                 bg_node = bg_nodes[node_i]
@@ -322,9 +322,8 @@ def process_data(data, max_time_steps=32, node_fetch=True):
                     save_bg_node_l.append(bg_node)
             save_bg_node_l = list(np.unique(save_bg_node_l))
             del_cnt1 = len(bg_nodes) - len(save_bg_node_l)
-            print('Bridging Background Node Fetching完成')
-            print(f'选取背景节点{len(save_bg_node_l)}个')
-            print(f'当前背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
+            logger.info('Bridging Background Node Fetching完成')
+            logger.info(f'当前背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
             # todo step2  bfs Affiliation Background Node Fetching. 在与target距离小于d2的背景结点中选择K个相关性最大的
             for node_i in trange(len(target_nodes)):
                 target_node = target_nodes[node_i]
@@ -366,7 +365,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             # for i in range(len(elist)):
             #     new_labels[i] = labels[elist[i][0]]
             #
-            print(f'压缩后点数:{len(save_node_l)} ，背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
+            logger.info(f'压缩后点数:{len(save_node_l)} ，背景节点数：{len(save_bg_node_l)},目标节点数：{len(target_nodes)}')
             # print(f'压缩后点数：{len(save_node_l)},边数：{len(elist)}')
             # todo 存
             np.savez(save_path, elist=elist, timestamps=timestamps)
