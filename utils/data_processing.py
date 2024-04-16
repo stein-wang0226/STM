@@ -81,7 +81,7 @@ def get_data_node_classification(dataset_name, use_validation=False, path_prefix
 
 def get_data(dataset_name, path_prefix='./utils/data',
              node_fetch=True):  # ./utils/data   --源数据集划分-->    ./utils/data/origin
-    path_prefix = "D:\\Downloads\\anaconda3\\test\\FTM_Label\\utils\\data"
+    path_prefix = "utils/data"
     if dataset_name == 'DGraph':
         datapath = path_prefix + "/dgraphfin.npz"
         origin_data = np.load(datapath)
