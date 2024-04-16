@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-
+import pandas as pd
 
 def get_previous_timestamp(timestamps, i, n_neighbors):
     # i表示第几个time_line，即第几个搜集出来的图
@@ -317,7 +317,7 @@ class NeighborFinder:
             neighbors_hop1 = neighbors[:, k, :]
         return neighbors, edge_idxs, edge_times
 
-    def find_k_closest_byTimeAndSpace(self, source_nodes, timestamps, n_neighbors=20, K=2):
+    def find_k_closest_byTimeAndSpace(self, source_nodes, timestamps, n_neighbors=20, K=2, type_of_find_k_closest="deascending"):
         # assert (len(source_nodes) == len(timestamps))
 
         tmp_n_neighbors = n_neighbors if n_neighbors > 0 else 1
@@ -379,13 +379,24 @@ class NeighborFinder:
         for i in range(1, K+1, 1):
             hop[:, (i-1)*n_neighbors:i*n_neighbors] = i
         score = deltaTimeScore*hop
+        # 按照分数从小到大进行排序，然后取得其对应的索引
         sorted_indices = np.argsort(score, axis=1)
-        neighbors = neighbors[np.arange(neighbors.shape[0])[:, None], sorted_indices]
-        edge_idxs = edge_idxs[np.arange(edge_idxs.shape[0])[:, None], sorted_indices]
-        edge_times = edge_times[np.arange(edge_times.shape[0])[:, None], sorted_indices]
+        if type_of_find_k_closest == "deascending":
+            sorted_indices = sorted_indices[:, ::-1]
+            neighbors = neighbors[np.arange(neighbors.shape[0])[:, None], sorted_indices]
+            edge_idxs = edge_idxs[np.arange(edge_idxs.shape[0])[:, None], sorted_indices]
+            edge_times = edge_times[np.arange(edge_times.shape[0])[:, None], sorted_indices]
 
-        neighbors = neighbors[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
-        edge_idxs = edge_idxs[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
-        edge_times = edge_times[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
+            neighbors = neighbors[:, -n_neighbors:].reshape(len(neighbors), 1, n_neighbors)
+            edge_idxs = edge_idxs[:, -n_neighbors:].reshape(len(neighbors), 1, n_neighbors)
+            edge_times = edge_times[:, -n_neighbors:].reshape(len(neighbors), 1, n_neighbors)
+        elif type_of_find_k_closest == "ascending":
+            neighbors = neighbors[np.arange(neighbors.shape[0])[:, None], sorted_indices]
+            edge_idxs = edge_idxs[np.arange(edge_idxs.shape[0])[:, None], sorted_indices]
+            edge_times = edge_times[np.arange(edge_times.shape[0])[:, None], sorted_indices]
+
+            neighbors = neighbors[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
+            edge_idxs = edge_idxs[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
+            edge_times = edge_times[:, :n_neighbors].reshape(len(neighbors), 1, n_neighbors)
 
         return neighbors, edge_idxs, edge_times

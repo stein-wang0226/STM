@@ -159,13 +159,14 @@ class GraphAttentionEmbedding(GraphEmbedding):
 class GraghHopTransformer(GraphEmbedding):
     def __init__(self, node_features, edge_features, neighbor_finder, time_encoder, n_layers,
                  n_node_features, n_edge_features, n_time_features, embedding_dimension, device,
-                 n_heads=2, dropout=0.1, k=2, use_att=0, n_neighbors=20):
+                 n_heads=2, dropout=0.1, k=2, use_att=0, n_neighbors=20, type_of_find_k_closest="deascending"):
         super(GraghHopTransformer, self).__init__(node_features, edge_features,
                                                   neighbor_finder, time_encoder, n_layers,
                                                   n_node_features, n_edge_features,
                                                   n_time_features,
                                                   embedding_dimension, device,
                                                   n_heads, dropout, k)
+        self.type_of_find_k_closest = type_of_find_k_closest
         self.n_neighbors = n_neighbors
         self.attention_models = torch.nn.ModuleList([HopAggLayer2(
             n_node_features=n_node_features,
@@ -199,7 +200,9 @@ class GraghHopTransformer(GraphEmbedding):
             neighbors, edge_idxs, edge_times = self.neighbor_finder.find_k_closest_byTimeAndSpace(
                 source_nodes,
                 timestamps,
-                n_neighbors=n_neighbors, K=self.k)
+                n_neighbors=n_neighbors, K=self.k,
+                type_of_find_k_closest=self.type_of_find_k_closest
+            )
 
             neighbors_torch = torch.from_numpy(neighbors).long().to(self.device)
 
@@ -256,7 +259,7 @@ class GraghHopTransformer(GraphEmbedding):
 def get_embedding_module(module_type, node_features, edge_features, neighbor_finder,  #
                          time_encoder, n_layers, n_node_features, n_edge_features, n_time_features,
                          embedding_dimension, device,
-                         n_heads=2, dropout=0.1, n_neighbors=20, k=2, use_att=0):
+                         n_heads=2, dropout=0.1, n_neighbors=20, k=2, use_att=0, type_of_find_k_closest="deascending"):
     if module_type == "graph_attention":
         return GraphAttentionEmbedding(node_features=node_features,
                                        edge_features=edge_features,
@@ -281,7 +284,8 @@ def get_embedding_module(module_type, node_features, edge_features, neighbor_fin
                                    embedding_dimension=embedding_dimension,
                                    device=device,
                                    n_heads=n_heads, dropout=dropout, k=k
-                                   , use_att=use_att, n_neighbors=n_neighbors)
+                                   , use_att=use_att, n_neighbors=n_neighbors,
+                                   type_of_find_k_closest=type_of_find_k_closest)
 
     else:
         raise ValueError("Embedding Module {} not supported".format(module_type))

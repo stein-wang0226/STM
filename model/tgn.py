@@ -14,7 +14,8 @@ class TGN(torch.nn.Module):
                  use_time_line=False,
                  time_line_length=1, agg_time_line="auto-encoder",
                  k=2,
-                 data="DGraph",use_att = 0 ):
+                 data="DGraph",use_att = 0,
+                 type_of_find_k_closest="deascending"):
         super(TGN, self).__init__()
         self.use_att = use_att
         self.n_layers = n_layers
@@ -23,6 +24,7 @@ class TGN(torch.nn.Module):
         self.logger = logging.getLogger(__name__)
         self.agg_time_line = agg_time_line
         self.data = data
+        self.type_of_find_k_closest = type_of_find_k_closest
 
         if data == "DGraph":
             self.node_raw_features = node_features.to(device)
@@ -69,7 +71,8 @@ class TGN(torch.nn.Module):
                                                      device=self.device,
                                                      n_heads=n_heads, dropout=dropout,
                                                      n_neighbors=self.n_neighbors,
-                                                     k=self.k, use_att=self.use_att
+                                                     k=self.k, use_att=self.use_att,
+                                                     type_of_find_k_closest=self.type_of_find_k_closest
                                                      )
 
         # MLP to compute probability on an edge given two node embeddings
