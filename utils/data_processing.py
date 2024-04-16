@@ -284,7 +284,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
         if not saved:
             # todo 加入到args
             d1 = args.d1   # todo   sd小于的d1的保留   越小删越多 发现>=3 都相等(选不了的都是没有与两个target 连通的bg node ——通过隶属fetch)
-            d2 = args.d2  # todo 取d2跳的k个最相似的
+            d2 = args.d2  # todo 取d2跳的k个最相似的 k 越小删越多   d2 越大考虑多跳
             k = args.k
             save_path = f'utils/fetched_data_len{length}_{d1}{d2}{k}.npz'
             nodes = np.unique(elist.flatten())  # elist 中所有点
@@ -302,7 +302,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             bg_nodes = [i for i in nodes if labels[i] in [2, 3]]
             target_nodes = [i for i in nodes if labels[i] in [0, 1]]
             save_bg_node_l = []
-            print(f'当前总节点数:{len(nodes),} ，背景节点数：{len(bg_nodes)},目标节点数：{len(target_nodes)}')
+            print(f'子图总节点数:{len(nodes)} ，背景节点数：{len(bg_nodes)},目标节点数：{len(target_nodes)}')
             # todo step1 bfs Bridging Background Node Fetching 背景节点j 到两最近目标节点距离之和<d1
             for node_i in trange(len(bg_nodes)):
                 bg_node = bg_nodes[node_i]
