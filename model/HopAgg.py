@@ -167,7 +167,7 @@ class HopAggLayer2(nn.Module):  # todo  其他数据集测试
         src_time_features = src_time_features.squeeze()
         new_src_node_features = self.scrTimeCatLinear(torch.cat((src_node_features, src_time_features), dim=1))
         # K表示K跳邻居，n_neighbors表示n_neighbors个邻居，最终得到的维度是(源节点个数，k条邻居，每条邻居的个数，feat_dim)
-        new_neighbors_features = new_neighbors_features.view(len(src_node_features), k, n_neighbors,
+        new_neighbors_features = new_neighbors_features.view(len(src_node_features), 1, n_neighbors,
                                                              -1)  # 12000 172--> 600 1 20 172
         # 将邻居特征中的每跳邻居的特征综合起来称为1维，然后直接消除这个维度 600 1 20单跳邻居 172  600 1 172
         # todo 搞个参数 cat_num表示拼接长度？

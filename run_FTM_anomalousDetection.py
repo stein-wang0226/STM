@@ -187,7 +187,7 @@ for i in range(args.n_runs):
 
         total_epoch_time = time.time() - start_epoch
         total_epoch_times.append(total_epoch_time)
-        logger.info("cur mean epoch time:".format(np.mean(total_epoch_times)))
+        logger.info("cur mean epoch time:{}".format(np.mean(total_epoch_times)))
         logger.info('epoch: {} took {:.2f}s'.format(epoch, total_epoch_time))
         logger.info('Epoch mean loss: {}'.format(np.mean(m_loss)))
 

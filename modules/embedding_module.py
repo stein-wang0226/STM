@@ -220,9 +220,9 @@ class GraghHopTransformer(GraphEmbedding):
 
             effective_n_neighbors = n_neighbors if n_neighbors > 0 else 1
             # todo 这里修改了一下，加了一个2，表明2条邻居
-            neighbor_embeddings = neighbor_embeddings.view(len(source_nodes), self.k, effective_n_neighbors, -1)
+            neighbor_embeddings = neighbor_embeddings.view(len(source_nodes), 1, effective_n_neighbors, -1)
             # todo 修改成了flatten()
-            edge_time_embeddings = self.time_encoder(torch.unsqueeze(edge_deltas_torch.flatten(), dim=1))
+            edge_time_embeddings = self.time_encoder(torch.unsqueeze(edge_deltas_torch.flatten(), dim = 1))
             # edge_time_embeddings = self.time_encoder(edge_deltas_torch)
 
             edge_features = self.edge_features[edge_idxs, :]
