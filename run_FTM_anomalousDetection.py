@@ -16,7 +16,7 @@ from utils.data_processing import get_data, compute_time_statistics, get_data_Dg
 import tqdm
 import os
 
-os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
+# os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 torch.manual_seed(0)
 np.random.seed(0)
 from option import args
