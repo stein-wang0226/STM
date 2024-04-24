@@ -293,7 +293,7 @@ def process_data(data, max_time_steps=32, node_fetch=True):
     ori_len = len(labels)  # 即结点数
     # length =2500000
     length = args.DGraph_size
-    logger.info(f'Graph size:{length}')
+    logger.info(f'origin size:{length}')
     nodes_slices = np.arange(0, length)
     data.edge_index = data.edge_index.T  #
     elist = data.edge_index  # [n,2]
@@ -405,15 +405,20 @@ def process_data(data, max_time_steps=32, node_fetch=True):
             # print(f'压缩后点数：{len(save_node_l)},边数：{len(elist)}')
             # todo 存
             np.savez(save_path, elist=elist, timestamps=timestamps)
+
         else:
             logger.info(f'use the npz file in {save_path}')
             logger.info('use saved npz file')
+
             if not os.path.exists(save_path):
                 logger.info('saved file don\'t exist')
         # todo 取
         loaded_data = np.load(save_path)
         elist = loaded_data['elist']
         timestamps = loaded_data['timestamps']
+        nodes = np.unique(elist.flatten())  # elist 中所有点
+        node_num = len(nodes)
+        logger.info(f'node_size:{node_num}')
         # new_labels = loaded_data['new_labels']
     #############################                                           todo end
 

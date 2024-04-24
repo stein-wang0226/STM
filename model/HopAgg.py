@@ -143,8 +143,8 @@ class HopAggLayer2(nn.Module):  # todo  其他数据集测试
         # 设置这一层的目的就是采用NagTransformer那篇文章，进行注意力的计算
         self.att_layer = nn.Linear(2 * self.node_feat_dim, 1)
         # todo 设置这些层的目的是采取相似性增强
-        self.hoLayer = nn.Linear(2 * self.node_feat_dim, 1)
-        self.heLayer = nn.Linear(2 * self.node_feat_dim, 1)
+        # self.hoLayer = nn.Linear(2 * self.node_feat_dim, 1)
+        # self.heLayer = nn.Linear(2 * self.node_feat_dim, 1)
         self.catLayer = nn.Linear(n_neighbors * self.node_feat_dim, self.node_feat_dim)
         self.catLayer2 = nn.Linear(2 * self.node_feat_dim, self.node_feat_dim)
         self.catLayer3 = nn.Linear(4 * self.node_feat_dim, self.node_feat_dim)
