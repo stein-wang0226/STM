@@ -4,7 +4,7 @@ This repository contains the code and datesets used for the experiments describe
 
 _STM: A Spatio-Temporal Model for Dynamic Graph Fraud Detection_
 
-![](.png)
+![model image](image.png)
 
 ## Requirements
 
