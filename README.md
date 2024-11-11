@@ -28,8 +28,12 @@ Datasets:
 ```
 scikit-learn==1.5.2
 pandas==1.1.0
+numpy==2.0.2
 torch==2.4.0+cu124
-rapids-dask-dependency==24.10.00
+torch-geometric==2.6.1
+torch-scatter==2.1.2+pt24cu124
+torch-sparse==0.6.18+pt24cu124
+torch-spline-conv==1.2.2+pt24cu124
 ```
 
 Make sure that the environment is set up before the experiment.
