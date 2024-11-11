@@ -67,5 +67,7 @@ Many thanks to the authors and developers!
 | time_line_length |   int    |             Number of frame             |
 |      epoch       |   int    | The number of rounds of model training  |
 | embedding_module |   str    |        Type of embedding module         |
+|        k         |   int    |        number of Aggregated hop         |
+
 
 **The repository will be continuously updated**.
