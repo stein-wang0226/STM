@@ -34,7 +34,7 @@ rapids-dask-dependency==24.10.00
 
 Make sure that the environment is set up before the experiment.
 
-### Model Training
+## Model Training
 
 The relevant datasets have been uploaded to the repository, and the code can be run directly.
 
@@ -42,19 +42,6 @@ The relevant datasets have been uploaded to the repository, and the code can be 
 python run_FTM_anomalousDetection.py -k 1 --data wikipedia --n_epoch 15 --embedding_module HopTransformer --use_time_line --time_line_length 2 --sample_mode time --hard_sample --n_layer 1 --bs 100 --use_ST_dist 
 ```
 
-### Acknowledgment
-
-This repo is built upon the following work:
-
-```
-TGN: Temporal Graph Networks  
-https://github.com/twitter-research/tgn
-
-FTM：A Frame-level Timeline Modeling Method for Temporal Graph Representation Learning
-https://github.com/yeeeqichen/FTM
-```
-
-Many thanks to the authors and developers!
 
 ### Main Parameters Settings
 
@@ -69,5 +56,17 @@ Many thanks to the authors and developers!
 | embedding_module |   str    |        Type of embedding module         |
 |        k         |   int    |        number of Aggregated hop         |
 
+## Acknowledgment
 
+This repo is built upon the following work:
+
+```
+TGN: Temporal Graph Networks  
+https://github.com/twitter-research/tgn
+
+FTM：A Frame-level Timeline Modeling Method for Temporal Graph Representation Learning
+https://github.com/yeeeqichen/FTM
+```
+
+Many thanks to the authors and developers!
 **The repository will be continuously updated**.
