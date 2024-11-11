@@ -1,4 +1,0 @@
-2024-03-25 11:30:28,844 - root - INFO - Namespace(agg_time_line='auto-encoder', backprop_every=1, bs=100, data='reddit', drop_out=0.1, embedding_module='graph_attention', gpu=0, hard_sample=True, k=1, lr=0.0001, n_degree=20, n_epoch=10, n_head=2, n_layer=1, n_runs=1, node_dim=100, path_prefix='./utils/data/', prefix='', sample_mode='time', time_dim=100, time_line_length=2, use_att=False, use_time_line=True)
-2024-03-25 11:30:42,545 - root - INFO - num of training instances: 470713
-2024-03-25 11:30:42,546 - root - INFO - num of batches per epoch: 4708
-2024-03-25 11:30:42,547 - root - INFO - start 0 epoch

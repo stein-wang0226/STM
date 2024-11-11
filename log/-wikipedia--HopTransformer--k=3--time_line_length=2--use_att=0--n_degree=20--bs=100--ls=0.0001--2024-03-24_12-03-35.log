@@ -1,9 +1,0 @@
-2024-03-24 12:03:35,246 - root - INFO - Namespace(agg_time_line='auto-encoder', backprop_every=1, bs=100, data='wikipedia', drop_out=0.1, embedding_module='HopTransformer', gpu=0, hard_sample=True, k=3, lr=0.0001, n_degree=20, n_epoch=10, n_head=2, n_layer=1, n_runs=1, node_dim=100, path_prefix='./utils/data/', prefix='', sample_mode='time', time_dim=100, time_line_length=2, use_att=0, use_time_line=True)
-2024-03-24 12:03:45,044 - root - INFO - num of training instances: 110232
-2024-03-24 12:03:45,045 - root - INFO - num of batches per epoch: 1103
-2024-03-24 12:03:45,045 - root - INFO - start 0 epoch
-2024-03-24 12:19:35,803 - root - INFO - val auc:0.6520405315150971
-2024-03-24 12:19:35,803 - root - INFO - test auc: 0.656258796130281
-2024-03-24 12:19:35,854 - root - INFO - epoch: 0 took 950.81s
-2024-03-24 12:19:35,854 - root - INFO - Epoch mean loss: 0.02389161206324013
-2024-03-24 12:19:35,887 - root - INFO - start 1 epoch
